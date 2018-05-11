@@ -6,6 +6,24 @@ body {
 
 }
 
+.legend {
+        position:absolute;
+        bottom:20px;
+        left:380px;
+        width:170px;
+        height:220px;
+        font-family: Arial, sans-serif;
+        font-weight: lighter;
+        color:white;
+        background-color: rgba(171, 150, 150, .4);
+        padding: 15px;
+        margin: 10px;
+        border: 1.5px solid #f07f30;
+        z-index: 100;
+      }
+
+
+
 .top{
   position:absolute;
   height:10%;
@@ -493,6 +511,38 @@ body {
         border-radius: 5px;
         /* background: red; */
       }
+
+      #fill8{
+        position:relative;
+        right:5px;
+        background-color:#197085;
+        border-color:#197085;
+        /* height:4px;
+        width:20px; */
+        width: 10px;
+        height: 10px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        /* background: red; */
+      }
+
+      #fill9{
+        position:relative;
+        right:5px;
+        background-color:#007085;
+        border-color:#007085;
+        /* height:4px;
+        width:20px; */
+        width: 10px;
+        height: 10px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        /* background: red; */
+      }
+
+
 
       #fill10{
         position:relative;

@@ -29,11 +29,19 @@ var tooltip = [];
 
 
 //1.3 setting up basemap
+// var map = L.map('map-mappage', {
+//   center: [-23.414, -57.384],
+//   zoom: 7,
+//   minZoom: 6,
+//   maxZoom: 11,
+//   zoomControl: false,
+// });
+
 var map = L.map('map-mappage', {
-  center: [-23.414, -57.384],
-  zoom: 7,
+  center: [-25.515246, -54.609539],
+  zoom: 11,
   minZoom: 6,
-  maxZoom: 11,
+  maxZoom: 14,
   zoomControl: false,
 });
 
@@ -74,7 +82,7 @@ var satellitemap = L.tileLayer(
 map.addLayer(lightmap);
 
 //DISABLE THE SCROLL ZOOM FUNCTION TO AVOID UNNECESSARY REQUESTS
-map.scrollWheelZoom.disable();
+// map.scrollWheelZoom.disable();
 
 //SHOW THE MAP DIV GRADUALLY
 $('#map-mappage').show(10000);
@@ -1244,9 +1252,9 @@ $(document).ready(function(){
 //WHEN SPECIFIC SCALE OF UNITS IS CHOOSED, THE UNIT CAN NOT BE CHANGES WITH CHANGING ZOOM LEVEL!!!
 //TO SHOW DIFFERENT OBJECT WITH DIFFERENT ZOOM LEVEL
 // REF:http://jsfiddle.net/expedio/kuovyw8m/
-map.on('zoomend', function (e) {
-    zoom_based_layerchange();
-});
+// map.on('zoomend', function (e) {
+//     zoom_based_layerchange();
+// });
 
 function zoom_based_layerchange() {
     //console.log(map.getZoom());
@@ -2240,7 +2248,7 @@ $('#countryscale').click(function(){
 $('#depscale').click(function(){
   selectedscale = 'department';
   // $('#selectedunit').text($(this).text());
-  map.setView([-23.414, -57.384],7);
+  // map.setView([-23.414, -57.384],7);
 
 
 
@@ -2347,7 +2355,7 @@ $('#depscale').click(function(){
 $('#distscale').click(function(){
   selectedscale = 'district';
   // $('#selectedunit').text($(this).text());
-  map.setView([-23.414, -57.384],7);
+  // map.setView([-23.414, -57.384],7);
 
   if(countgapdisplay%2 == 0){
     //the situation in analytics mode
@@ -2693,8 +2701,7 @@ $('#roadstitle5').click(function(){
     document.getElementById('r5b').style.display = 'none';
     document.getElementById('r5b').style.visibility = 'none';
 
-
-
+    $('#box8').hide();
     _.each(MaternalSchools,function(layer){
       map.removeLayer(layer);
     });
@@ -2702,6 +2709,11 @@ $('#roadstitle5').click(function(){
   }else{
     document.getElementById('r5b').style.display = 'block';
     document.getElementById('r5b').style.visibility = 'visible';
+
+    $('#box8').show();
+    _.each(MaternalSchools,function(layer){
+      map.addLayer(layer);
+    });
 
     _.each(Country_boundary,function(layer){
         layer.setStyle(fadedStyle);
@@ -2757,6 +2769,10 @@ $('#roadstitle6').click(function(){
     document.getElementById('r6b').style.display = 'none';
     document.getElementById('r6b').style.visibility = 'none';
 
+    $('#box9').hide();
+    _.each(BasicSchools,function(layer){
+      map.removeLayer(layer);
+    });
 
     _.each(BasicSchools,function(layer){
       map.removeLayer(layer);
@@ -2765,6 +2781,12 @@ $('#roadstitle6').click(function(){
   }else{
     document.getElementById('r6b').style.display = 'block';
     document.getElementById('r6b').style.visibility = 'visible';
+
+    $('#box9').show();
+    _.each(BasicSchools,function(layer){
+      map.addLayer(layer);
+    });
+
 
     _.each(Country_boundary,function(layer){
         layer.setStyle(fadedStyle);
