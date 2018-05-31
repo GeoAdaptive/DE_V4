@@ -38,8 +38,8 @@ var tooltip = [];
 // });
 
 var map = L.map('map-mappage', {
-  center: [-25.515246, -54.609539],
-  zoom: 11,
+  center: [-23.414527, -56.506032],
+  zoom: 7,
   minZoom: 6,
   maxZoom: 14,
   zoomControl: false,
